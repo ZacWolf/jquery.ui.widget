@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<!-- Required -->	
+		<!-- //jquery.org -->
+		<script type='text/javascript' src="http://code.jquery.com/jquery-3.0.0.js"></script>
+		<script type='text/javascript' src="http://cdn.jsdelivr.net/jquery.ui/1.11.4/jquery-ui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/normalize/3.0.3/normalize.css" />
+		
+		<script src="js/jquery.ui.widget.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/jquery.ui.widget.css">
+	</head>
+	<body>
+		<button id="change">Change Color</button>
+		<div id="win1">This is a test</div>
+		<div id="win2">This is another test</div>
+		<script>
+var		win1,win2;
+			$( document ).ready(
+				function(){
+					win1	=	$('#win1').box();
+					win2	=	$('#win2').box({
+												'style':{	'position':'fixed'
+															,'top':'100px'
+															,'left':'100px'
+															,'background-color':'#880000'
+												}
+											});
+					$('#change').on('click',function(){win1.box('color','green')});
+				}
+			);
+		</script>
+	</body>
+</html>

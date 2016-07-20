@@ -7,16 +7,38 @@
  * Licensed under GPL-3.0
  */
 
-jQuery.widget( "widgets.window", {
+jQuery.widget( "mywidgets.box", {
 	mydiv: null
 	,id:null
 	,options:{	'style':{'width':'640px'
 					 	 ,'height':'480px'
 						 ,'min-width':'350px'
 						 ,'min-height':'200px'
+						 ,'padding':'20px'
+						 ,'border':'2px solid blue'
+						 ,'position':'fixed'
+						 ,'top':'50px'
+						 ,'left':'50px'
 					}
 	}
 	,_create: 
 		function() {
+			this.windiv		=	this.element;
+			this.windiv.uniqueId();
+			this.id			=	this.windiv.attr('id');
+var			self			=	this;
+			this.windiv.addClass('win');
+			jQuery.each(this.options,function(attr,val){
+				if (attr.toLowerCase()==="style" && jQuery.type(val)==="object"){
+					self.windiv.css(self.options.style);
+					self.options.style	=	undefined;
+				}
+			})
+			return this;
+		}
+	,color:
+		function(c){
+			this.windiv.css({'background-color':c});
+			return this;
 		}
 });
